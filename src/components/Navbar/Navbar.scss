@@ -1,62 +1,104 @@
+// Define your color variables
+$color-primary: var(--col2);
+$color-white: white;
+$color-secondary: var(--col2);
+
+// Define a mixin for media queries
+@mixin respond-to($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
 nav {
-    background-color: var(--col2);
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
+  background-color: $color-primary;
+  color: $color-white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+
+  img {
+    height: 30px;
+    margin-right: 10px;
   }
 
-  
   .left {
     display: flex;
     align-items: center;
   }
-  nav img{
-    height: 30px;
-    margin-right: 10px;
-  }
+
   .searchbox {
     display: flex;
     align-items: center;
-    background-color: white;
+    background-color: $color-white;
     border-radius: 4px;
     padding: 10px;
     margin-left: 10px;
-    width: 500px;
-   
+    width: 40vw; // Consider using a responsive width unit
+
+    .searchbtn {
+      margin-right: 5px;
+      font-size: 1.2rem;
+      color: $color-secondary;
+    }
+
+    input[type="text"] {
+      border: none;
+      outline: none;
+      background: none;
+    }
   }
-  
-  .searchbtn {
-    margin-right: 5px;
-    font-size: 1.2rem;
-    color: var(--col2);
-  }
-  
-  input[type="text"] {
-    border: none;
-    outline: none;
-    background: none;
+
+  .shorttext {
+    display: none;
   }
 
   .right {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+
+    .theme_icon1 {
+      font-size: 1.5rem;
+    }
+
+    .dropdown {
+      display: flex;
+      align-items: center;
+      margin: 0px 20px;
+      cursor: pointer;
+    }
+
+    .dropicon {
+      font-size: 20px;
+    }
   }
-  
-  .dropdown {
-    /* Rest of your styling */
-    margin-bottom: 0; /* This is to align with the button if necessary */
+
+  // Use the mixin for your media queries
+  @include respond-to(600px) {
+    .right {
+      width: 50vw;
+    }
+
+    .left {
+      width: 30vw;
+    }
+
+    .searchbox {
+      width: 20vw;
+
+      input {
+        font-size: 12px;
+      }
+
+      .largetext {
+        display: none;
+      }
+
+      .shorttext {
+        display: inline-block;
+      }
+    }
   }
-  
-  .theme_btn1.linkstylenone {
-    /* Rest of your styling */
-    margin-top: 0; /* Adjust this as necessary to align with the dropdown */
-  }
-  
-  /* Ensure there's no extra margin on the top and bottom for the dropdown and button */
-  .dropdown, .theme_btn1.linkstylenone {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  
+}
