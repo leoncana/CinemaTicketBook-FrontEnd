@@ -38,12 +38,6 @@ export default function Home() {
 
 
         } else {
-          // toast(response.message, {
-          //     type: 'error',
-          //     position: 'top-right',
-          //     autoClose: 2000
-          // });
-
           window.location.href = "/auth/signin"
         }
       })
