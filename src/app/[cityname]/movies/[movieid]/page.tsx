@@ -10,7 +10,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
-import CelebCard from '@/components/CelebCard/CelebCard';
+// import CelebCard from '@/components/CelebCard/CelebCard';
 import { usePathname, useParams } from 'next/navigation'
 import Link from 'next/link';
 
