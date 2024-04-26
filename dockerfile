@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copy package.json, package-lock.json, and the .next directory
 COPY package*.json ./
-COPY .next/ .next/
+COPY . .next/
 
 # Install production dependencies
 RUN npm install --production
