@@ -174,7 +174,7 @@ console.log(process.env.NEXT_PUBLIC_BACKEND_API)
                         </button>
 
                         <p className="authlink">
-                            Don't have an account? <Link href="/auth/signup">Register</Link>
+                            Don&apos;t have an account? <Link href="/auth/signup">Register</Link>
                         </p>
                     </form>
                 </div>
