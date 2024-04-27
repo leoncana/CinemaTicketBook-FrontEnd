@@ -64,4 +64,4 @@ jobs:
           action: deploy
           manifests: ${{ env.DEPLOYMENT_MANIFEST_PATH }}
           # Make sure to use a correct image tag here
-          images: leoncana10/cinema-front:$(date +%s)
+          images: leoncana10/cinema-front:tag1
