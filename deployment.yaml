@@ -2,18 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cinematicket
+  namespace: cinematicket  # Ensure namespace matches the service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my-react-app
+      app: cinema-ticket-app  # This label must match the service selector
   template:
     metadata:
       labels:
-        app: my-react-app
+        app: cinema-ticket-app  # This label must match the service selector
     spec:
       containers:
-        - name: my-react-app
-          image: leoncana10/cinema-front
-          ports:
-            - containerPort: 3000
+      - name: cinema-ticket-app  # Name of the container
+        image: leoncana10/cinema-front:tag1  # Specify the image tag if known
+        ports:
+        - containerPort: 3000  # Port the container is listening on
