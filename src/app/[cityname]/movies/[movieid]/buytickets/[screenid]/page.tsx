@@ -29,29 +29,26 @@ const SelectSeatPage  = () => {
             },
             credentials: 'include'
         })
-            .then(res => res.json())
-            .then(response => {
-                if (response.ok) {
-                    setScreen(response.data);
-                    if (response.data.movieSchedulesforDate.length > 0) {
-                      // Only set the selectedTime here to the first available time
-                      setSelectedTime(response.data.movieSchedulesforDate[0]);
-                      toast.success('Movie schedule retrieved successfully');
-                    } else {
-                      // Handle the case where there are no schedules
-                      toast.error('No schedules available for this movie.');
-                    }
-                  } else {
-                    // Handle failure to fetch schedules
-                    toast.error(response.message || 'Failed to fetch schedules.');
-                  }
-            })
-            .catch(err => {
-                console.error(err);
-                toast.error('An error occurred while fetching schedules.');
-            });
-
-    }
+        .then(res => res.json())
+        .then(response => {
+            if (response.ok) {
+                setScreen(response.data);
+                if (response.data.movieSchedulesforDate.length > 0) {
+                    setSelectedTime(response.data.movieSchedulesforDate[0]);
+                    toast.success('Movie schedule retrieved successfully');
+                } else {
+                    toast.error('No schedules available for this movie.');
+                }
+            } else {
+                toast.error(response.message || 'Failed to fetch schedules.');
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            toast.error('An error occurred while fetching schedules.');
+        });
+    };
+    
 
     const [movie, setMovie] = React.useState<any>(null)
 
