@@ -115,7 +115,7 @@ const Navbar = () => {
                 ) : (
                     <Link href="/auth/signin" className='theme_btn1 linkstylenone'>Login</Link>
                 )}
-                <Link href="/profile" className='linkstylenone' title="Profile">
+                <Link href="/auth/signin" className='linkstylenone' title="Profile">
                     <BiUserCircle className='theme_icon1' />
                 </Link>
             </div>
