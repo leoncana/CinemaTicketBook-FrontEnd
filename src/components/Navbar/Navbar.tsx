@@ -96,9 +96,7 @@ const Navbar = () => {
         <nav>
             <div className='left' >
                 <Image src={logo} title="Homepage" alt="logo" width={100} height={100} 
-                    onClick={
-                        ()=> window.location.href = "/"
-                    }
+                    onClick={() => window.location.href = "/"}
                 />
                 <div className='searchbox'>
                     <BiSearch className='searchbtn' />
@@ -106,32 +104,29 @@ const Navbar = () => {
                 </div>
             </div>
             <div className='right'>
-                <p className='dropdown'
-                    onClick={() => setShowLocationPopup(true)}
-                >
-                    {user ? user.city : "Select City"}
-                     <RiArrowDropDownFill className="dropicon" /></p>
-               {
-                     loggedIn ?
-                     <button className='theme_btn1 linkstylenone' onClick={handleLogout}>Logout</button>
-                     :
-                        <Link href="/auth/signin" className='theme_btn1 linkstylenone'>
-                            Login
-                        </Link>
-
-               }
+                {loggedIn && (
+                    <p className='dropdown' onClick={() => setShowLocationPopup(true)}>
+                        {user ? user.city : "Select City"}
+                        <RiArrowDropDownFill className="dropicon" />
+                    </p>
+                )}
+                {loggedIn ? (
+                    <button className='theme_btn1 linkstylenone' onClick={handleLogout}>Logout</button>
+                ) : (
+                    <Link href="/auth/signin" className='theme_btn1 linkstylenone'>Login</Link>
+                )}
                 <Link href="/profile" className='linkstylenone' title="Profile">
                     <BiUserCircle className='theme_icon1' />
                 </Link>
             </div>
-            {
-                showLocationPopup &&
+
+            {showLocationPopup && (
                 <LocationPopup
                     setShowLocationPopup={setShowLocationPopup}
                 />
-            }
+            )}
         </nav>
-    )
+    );
 }
 
 export default Navbar
